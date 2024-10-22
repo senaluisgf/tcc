@@ -1,5 +1,6 @@
 import { ajvFilePlugin } from '@fastify/multipart';
 import fastify from 'fastify';
+import process from 'node:process';
 import { isMainThread } from 'node:worker_threads';
 import backendPlugin from './plugin';
 

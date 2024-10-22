@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     container_name: postgres
@@ -17,8 +15,20 @@ services:
       timeout: 30s
       retries: 5
 
-  # kitajs:
-  #   container_name: kitajs
+  kitajs:
+    container_name: kitajs
+    build:
+      context: ./kitajs
+      dockerfile: Dockerfile
+    ports:
+      - ${KITAJS_PORT}:${KITAJS_PORT}
+    expose:
+      - ${KITAJS_PORT}
+    env_file:
+      - ./kitajs/.env
+    restart: unless-stopped
+    depends_on:
+      - postgres
 
   # nestjs:
   #   container_name: nestjs
