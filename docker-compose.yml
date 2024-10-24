@@ -27,7 +27,7 @@ services:
     expose:
       - ${KITAJS_PORT}
     env_file:
-      - ./kitajs/.env
+      - ./kitajs/.env.kitajs
     restart: unless-stopped
     depends_on:
       - postgres
@@ -44,7 +44,7 @@ services:
     expose:
       - ${NESTJS_PORT}
     env_file:
-      - ./nestjs/.env
+      - ./nestjs/.env.nestjs
     restart: unless-stopped
     depends_on:
       - postgres
