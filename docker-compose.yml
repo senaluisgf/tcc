@@ -28,6 +28,8 @@ services:
       - ${KITAJS_PORT}
     env_file:
       - ./kitajs/.env.kitajs
+    environment:
+      NODE_ENV: ${NODE_ENV}
     restart: unless-stopped
     depends_on:
       - postgres
@@ -45,6 +47,8 @@ services:
       - ${NESTJS_PORT}
     env_file:
       - ./nestjs/.env.nestjs
+    environment:
+      NODE_ENV: ${NODE_ENV}
     restart: unless-stopped
     depends_on:
       - postgres
